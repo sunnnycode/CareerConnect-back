@@ -18,7 +18,7 @@ public class UserBusiness {
     private final UserMapper userMapper;
 
     private final TokenBusiness tokenBusiness;
-    
+
 
     /**
      * 사용자에 대한 가입처리 로직
@@ -44,20 +44,20 @@ public class UserBusiness {
      * 4. token response
      */
     public TokenResponse login(UserLoginRequest request) {
-        var userEntity = userService.login(request.getEmail(), request.getPassword());
+        var userEntity = userService.login(request.getUserId(), request.getPasswordHash());
         var tokenResponse = tokenBusiness.issueToken(userEntity);
         return tokenResponse;
 
     }
 
-    public UserResponse me(
-            UserDto userdto
-    ) {
-        var userEntity = userService.getUserWithThrow(userdto.getId());
-        var response = userMapper.toResponse(userEntity);
-        return response;
-
-
-    }
+//    public UserResponse me(
+//            UserDto userdto
+//    ) {
+//        var userEntity = userService.getUserWithThrow(userdto.getId());
+//        var response = userMapper.toResponse(userEntity);
+//        return response;
+//
+//
+//    }
 }
 

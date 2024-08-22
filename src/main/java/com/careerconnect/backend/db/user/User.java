@@ -23,20 +23,20 @@ public class User extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
+    @Column(name = "user_id")
+    private String userId;
+
     @Column(nullable = false)
     private String username;
 
-    @Column(nullable = false)
-    private String email;
+    @Column(name = "password_hash")
+    private String passwordHash;
 
-    @Column(nullable = false)
-    private String password_hash;
+    private LocalDateTime createdAt;
 
-    private LocalDateTime created_at;
+    private LocalDateTime lastLogin;
 
-    private LocalDateTime last_login;
-
-    private Boolean is_active;
+    private Boolean isActive;
 
 
 //

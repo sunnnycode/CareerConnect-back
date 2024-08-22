@@ -18,17 +18,17 @@ public class UserDto {
 
     private int id;
 
+    private String userId;
+
     private String username;
 
-    private String email;
+    private String passwordHash;
 
-    private String password_hash;
+    private LocalDateTime createdAt;
 
-    private LocalDateTime created_at;
+    private LocalDateTime lastLogin;
 
-    private LocalDateTime last_login;
-
-    private Boolean is_active;
+    private Boolean isActive;
 
 
 

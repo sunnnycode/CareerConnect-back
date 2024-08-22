@@ -6,6 +6,7 @@ import com.careerconnect.backend.domain.user.business.UserBusiness;
 import com.careerconnect.backend.domain.user.dto.UserLoginRequest;
 import com.careerconnect.backend.domain.user.dto.UserRegisterRequest;
 import com.careerconnect.backend.domain.user.dto.UserResponse;
+import com.careerconnect.backend.domain.user.service.UserService;
 import com.careerconnect.backend.domain.user.token.controller.model.TokenResponse;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -18,7 +19,29 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin(origins="http://localhost:3000", allowedHeaders="POST")
 public class UserOpenApiController {
 
+    private final UserService userService;
     private final UserBusiness userBusiness;
+
+//ㅁㅅ코드
+//    //로그인
+//    @PostMapping("/login")
+//    public Api<LoginResponse> login(@RequestBody LoginRequest loginRequest){
+//        log.debug("",loginRequest);
+//        LoginResponse response = userService.login(loginRequest);
+//        return Api.OK(response);
+//    }
+//
+//
+//    //회원가입
+//    @PostMapping("/register")
+//    public Api<String> register(
+//            @Valid
+//            @RequestBody UserRegisterRequest request
+//    ){
+//        userService.register(request);
+//        return Api.OK("success");
+//    }
+
 
     // 사용자 가입 요청
     @PostMapping("/register")

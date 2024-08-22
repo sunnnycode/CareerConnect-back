@@ -20,25 +20,25 @@ public class TokenService {
     private final TokenHelperIfs tokenHelperIfs;
 
 
-    public TokenDto issueAccessToken(String userName){
+    public TokenDto issueAccessToken(String userId){
         var data = new HashMap<String, Object>();
-        data.put("userName", userName);
+        data.put("userId", userId);
         return tokenHelperIfs.issueAccessToken(data);
 
     }
 
-    public TokenDto issueRefreshToken(String useeName){
+    public TokenDto issueRefreshToken(String userId){
         var data = new HashMap<String, Object>();
-        data.put("userName", useeName);
+        data.put("userId", userId);
         return tokenHelperIfs.issueAccessToken(data);
 
     }
 
     public String validationToken(String token){
         var map = tokenHelperIfs.validationTokenWithThrow(token);
-        var userName = map.get("userName");
-        Objects.requireNonNull(userName, () ->{throw new ApiException(ErrorCode.NULL_POINT);});
-        return userName.toString();
+        var userId = map.get("userId");
+        Objects.requireNonNull(userId, () ->{throw new ApiException(ErrorCode.NULL_POINT);});
+        return userId.toString();
 
     }
 //

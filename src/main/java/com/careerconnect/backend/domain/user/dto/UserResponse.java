@@ -7,6 +7,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -15,16 +17,18 @@ public class UserResponse {
 
     private int id;
 
+    private String userId;
+
     private String username;
 
-    private String email;
+    private String passwordHash;
 
-    //지울 것
-    private String password;
+    private LocalDateTime createdAt;
 
-    private String phoneNumber;
+    private LocalDateTime lastLogin;
 
-    private String location;
+    private Boolean isActive;
+
 
 
 }
