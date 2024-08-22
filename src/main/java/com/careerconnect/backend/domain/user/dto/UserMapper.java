@@ -14,9 +14,10 @@ public class UserMapper {
 
     public User toEntity(UserRegisterRequest request){
 
+        // to entity
         return Optional.ofNullable(request)
                 .map(it -> {
-                    // to entity
+
                     return User.builder()
                             .userId(request.getUserId())
                             .username(request.getUsername())
@@ -27,11 +28,12 @@ public class UserMapper {
                 .orElseThrow(()-> new ApiException(ErrorCode.NULL_POINT, "UserRegisterRequest Null"));
     }
 
+    // to response
     public UserResponse toResponse(User user) {
 
         return Optional.ofNullable(user)
                 .map(it ->{
-                    // to response
+
                     return UserResponse.builder()
                             .userId(user.getUserId())
                             .username(user.getUsername())

@@ -13,6 +13,9 @@ import java.util.Objects;
 @RequiredArgsConstructor
 @Converter
 public class TokenConverter {
+    // converter는 mapper와 유사함
+    // 그러나 mapper: 객체 간의 변환 처리
+    // converter: 간단한 데이터 타입 간의 변환
 
     public TokenResponse toResponse(
             TokenDto accessToken,

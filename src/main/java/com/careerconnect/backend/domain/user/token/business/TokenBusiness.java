@@ -46,21 +46,4 @@ public class TokenBusiness {
 
     }
 
-//    public CustomUserDetail validationAccessToken(String accessToken){
-//        //var userId = tokenService.validationToken(accessToken);
-//        tokenService.validationToken(accessToken);
-//        String username = extractUsernameFromToken(accessToken);
-//        String location = extractUsernameFromToken(accessToken);
-//        return new CustomUserDetail(username, location);
-//    }
-
-//    private String extractUsernameFromToken(String accessToken) {
-//        return user.getUsername();
-//        // Extract username from token
-//    }
-//
-//    private String extractLocationFromToken(String accessToken) {
-//        // Extract location from token
-//        return user.getLocation();
-//    }
 }

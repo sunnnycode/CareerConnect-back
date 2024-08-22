@@ -19,7 +19,7 @@ public class TokenService {
 
     private final TokenHelperIfs tokenHelperIfs;
 
-
+    // 토큰 생성
     public TokenDto issueAccessToken(String userId){
         var data = new HashMap<String, Object>();
         data.put("userId", userId);
@@ -27,6 +27,7 @@ public class TokenService {
 
     }
 
+    // 토큰 재발행
     public TokenDto issueRefreshToken(String userId){
         var data = new HashMap<String, Object>();
         data.put("userId", userId);
@@ -34,6 +35,7 @@ public class TokenService {
 
     }
 
+    // 토큰 검증
     public String validationToken(String token){
         var map = tokenHelperIfs.validationTokenWithThrow(token);
         var userId = map.get("userId");
@@ -41,13 +43,5 @@ public class TokenService {
         return userId.toString();
 
     }
-//
-//    public String extractUsername(String token) {
-//        Claims claims = Jwts.parser()
-//                .setSigningKey(secretKey)
-//                .parseClaimsJws(token)
-//                .getBody();
-//
-//        return claims.get("username", String.class); // "username" 필드에서 추출
-//    }
+
 }

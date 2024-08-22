@@ -1,6 +1,5 @@
 package com.careerconnect.backend.domain.user.controller;
 
-
 import com.careerconnect.backend.common.api.Api;
 import com.careerconnect.backend.domain.user.business.UserBusiness;
 import com.careerconnect.backend.domain.user.dto.UserLoginRequest;
@@ -22,28 +21,8 @@ public class UserOpenApiController {
     private final UserService userService;
     private final UserBusiness userBusiness;
 
-//ㅁㅅ코드
-//    //로그인
-//    @PostMapping("/login")
-//    public Api<LoginResponse> login(@RequestBody LoginRequest loginRequest){
-//        log.debug("",loginRequest);
-//        LoginResponse response = userService.login(loginRequest);
-//        return Api.OK(response);
-//    }
-//
-//
-//    //회원가입
-//    @PostMapping("/register")
-//    public Api<String> register(
-//            @Valid
-//            @RequestBody UserRegisterRequest request
-//    ){
-//        userService.register(request);
-//        return Api.OK("success");
-//    }
 
-
-    // 사용자 가입 요청
+    // 회원가입
     @PostMapping("/register")
     public Api<UserResponse> register(
             @Valid
