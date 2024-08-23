@@ -47,18 +47,10 @@ dependencies {
 	// Validation
 	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-validation', version: '3.3.2'
 
-	//Flyway
-	implementation 'org.flywaydb:flyway-core'
 
-	// JPA Query 성능튜닝
-	implementation 'com.fasterxml.jackson.datatype:jackson-datatype-hibernate6:2.17.2'
 }
 
-//flyway {
-//	url = 'jdbc:mariadb://localhost:3306/(DB이름 추가)'  //DB이름 추가해야되요
-//	user = 'admin'
-//	password = 'admin'
-//}
+
 
 tasks.named('test') {
 	useJUnitPlatform()
