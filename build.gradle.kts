@@ -69,8 +69,8 @@ dependencies {
 
 	implementation("org.hibernate:hibernate-entitymanager:6.0.0.Alpha7")
 
-	//implementation("org.flywaydb:flyway-core:10.17.2")
-	//implementation ("org.flywaydb:flyway-mysql")
+	implementation("org.flywaydb:flyway-core:10.17.2")
+	implementation ("org.flywaydb:flyway-mysql")
 
 
 }

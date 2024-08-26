@@ -13,10 +13,10 @@ spring:
     hibernate:
       ddl-auto: update
 
-#  flyway:
-#    location: classpath:/db/migration/{vendor}
-#    baselineOnMigrate: true
-#    enabled: true
+  flyway:
+    location: classpath:/db/migration/{vendor}
+    baselineOnMigrate: true
+    enabled: true
 
   kafka:
     bootstrap-servers: localhost:9092
