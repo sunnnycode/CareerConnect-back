@@ -4,6 +4,13 @@ spring:
   application:
     name: careerconnect
 
+  #database 설정
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: ${DATABASE_URL}
+    username: ${DATABASE_USERNAME}
+    password: ${DATABASE_PASSWORD}
+
   jpa:
     show-sql: true
     open-in-view: false
@@ -14,7 +21,10 @@ spring:
       ddl-auto: update
 
   flyway:
-    location: classpath:/db/migration/{vendor}
+    url: ${DATABASE_URL}
+    user: ${DATABASE_USERNAME}
+    password: ${DATABASE_PASSWORD}
+    location: classpath:/db/migration
     baselineOnMigrate: true
     enabled: true
 
@@ -28,23 +38,6 @@ spring:
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.apache.kafka.common.serialization.StringSerializer
-
-
-#    # Database 설정
-#    datasource:
-#      driver-class-name: org.mariadb.jdbc.Driver
-#      url: jdbc:mariadb://localhost:3307/careerconnection_db?useUnicode=true&allowPublicKeyRetrieval=true
-#      username: root
-#      password: maria
-
-
-
-  #database 설정
-  datasource:
-    driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
-    url: jdbc:log4jdbc:mysql://localhost:3307/careerconnection_db?useUnicode=true&allowPublicKeyRetrieval=true
-    username: root
-    password: maria
 
 
 
