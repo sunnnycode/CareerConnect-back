@@ -20,7 +20,6 @@ public class TokenBusiness {
 
     private final TokenConverter tokenConverter;
 
-    private final User user;
 
     /**
      * 1. user entity user Id 추출
@@ -34,7 +33,8 @@ public class TokenBusiness {
                 .map(user -> {
                     return user.getUsername();
                 })
-                .map(userId -> {
+                .map(user -> {
+                    String userId = userEntity.getUserId();
                     var accessToken = tokenService.issueAccessToken(userId);
                     var refreshToken = tokenService.issueRefreshToken(userId);
                     return tokenConverter.toResponse(accessToken, refreshToken);

@@ -9,6 +9,7 @@ import com.careerconnect.backend.domain.user.service.UserService;
 import com.careerconnect.backend.domain.user.token.controller.model.TokenResponse;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -28,6 +29,7 @@ public class UserOpenApiController {
             @Valid
             @RequestBody Api<UserRegisterRequest> request
     ) {
+
         var response = userBusiness.register(request.getBody());
         return Api.OK(response);
     }

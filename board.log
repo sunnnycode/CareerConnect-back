@@ -1,0 +1,6 @@
+2024-08-23 16:06:35,595  INFO {com.careerconnect.backend.CarrerconnectBackendApplication} Starting CarrerconnectBackendApplication using Java 21.0.4 with PID 1812 (C:\careerconnect\careerconnect\out\production\classes started by r2com in C:\careerconnect\careerconnect)
+2024-08-23 16:06:35,596 DEBUG {com.careerconnect.backend.CarrerconnectBackendApplication} Running with Spring Boot v3.3.2, Spring v6.1.11
+2024-08-23 16:06:35,597  INFO {com.careerconnect.backend.CarrerconnectBackendApplication} The following 1 profile is active: "prod"
+2024-08-23 16:19:43,153  INFO {com.careerconnect.backend.CarrerconnectBackendApplication} Starting CarrerconnectBackendApplication using Java 21.0.4 with PID 3220 (C:\careerconnect\careerconnect\out\production\classes started by r2com in C:\careerconnect\careerconnect)
+2024-08-23 16:19:43,164 DEBUG {com.careerconnect.backend.CarrerconnectBackendApplication} Running with Spring Boot v3.3.2, Spring v6.1.11
+2024-08-23 16:19:43,165  INFO {com.careerconnect.backend.CarrerconnectBackendApplication} The following 1 profile is active: "prod"

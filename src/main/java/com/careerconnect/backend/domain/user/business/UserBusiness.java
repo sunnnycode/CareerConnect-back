@@ -40,7 +40,7 @@ public class UserBusiness {
      * 4. token response
      */
     public TokenResponse login(UserLoginRequest request) {
-        var userEntity = userService.login(request.getUserId(), request.getPasswordHash());
+        var userEntity = userService.login(request);
         var tokenResponse = tokenBusiness.issueToken(userEntity);
         return tokenResponse;
     }
