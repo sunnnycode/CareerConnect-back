@@ -13,7 +13,7 @@ public class UserRegisterRequest {
 
 
     @NotBlank(message = "아이디는 필수 입력 값입니다.")
-    private String userId;
+    private String loginId;
 
     @NotBlank(message = "닉네임은 필수 입력 값입니다.")
     private String username;

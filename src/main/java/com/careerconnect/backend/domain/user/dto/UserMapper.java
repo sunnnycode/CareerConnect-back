@@ -19,7 +19,7 @@ public class UserMapper {
                 .map(it -> {
 
                     return User.builder()
-                            .userId(request.getUserId())
+                            .loginId(request.getLoginId())
                             .username(request.getUsername())
                             .passwordHash(request.getPasswordHash())
                             .build();
@@ -35,7 +35,7 @@ public class UserMapper {
                 .map(it ->{
 
                     return UserResponse.builder()
-                            .userId(user.getUserId())
+                            .loginId(user.getLoginId())
                             .username(user.getUsername())
                             .passwordHash(user.getPasswordHash())
                             .build();

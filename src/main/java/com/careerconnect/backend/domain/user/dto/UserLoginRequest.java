@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 public class UserLoginRequest {
 
     @NotBlank
-    private String userId;
+    private String loginId;
 
     @NotBlank
     private String passwordHash;

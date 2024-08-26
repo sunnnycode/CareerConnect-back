@@ -20,17 +20,17 @@ public class TokenService {
     private final TokenHelperIfs tokenHelperIfs;
 
     // 토큰 생성
-    public TokenDto issueAccessToken(String userId){
+    public TokenDto issueAccessToken(String loginId){
         var data = new HashMap<String, Object>();
-        data.put("userId", userId);
+        data.put("loginId", loginId);
         return tokenHelperIfs.issueAccessToken(data);
 
     }
 
     // 토큰 재발행
-    public TokenDto issueRefreshToken(String userId){
+    public TokenDto issueRefreshToken(String loginId){
         var data = new HashMap<String, Object>();
-        data.put("userId", userId);
+        data.put("loginId", loginId);
         return tokenHelperIfs.issueAccessToken(data);
 
     }
@@ -38,9 +38,9 @@ public class TokenService {
     // 토큰 검증
     public String validationToken(String token){
         var map = tokenHelperIfs.validationTokenWithThrow(token);
-        var userId = map.get("userId");
-        Objects.requireNonNull(userId, () ->{throw new ApiException(ErrorCode.NULL_POINT);});
-        return userId.toString();
+        var loginId = map.get("loginId");
+        Objects.requireNonNull(loginId, () ->{throw new ApiException(ErrorCode.NULL_POINT);});
+        return loginId.toString();
 
     }
 

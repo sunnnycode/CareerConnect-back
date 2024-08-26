@@ -34,9 +34,9 @@ public class TokenBusiness {
                     return user.getUsername();
                 })
                 .map(user -> {
-                    String userId = userEntity.getUserId();
-                    var accessToken = tokenService.issueAccessToken(userId);
-                    var refreshToken = tokenService.issueRefreshToken(userId);
+                    String loginId = userEntity.getLoginId();
+                    var accessToken = tokenService.issueAccessToken(loginId);
+                    var refreshToken = tokenService.issueRefreshToken(loginId);
                     return tokenConverter.toResponse(accessToken, refreshToken);
                 })
                 .orElseThrow(

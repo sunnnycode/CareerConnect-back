@@ -64,6 +64,8 @@ dependencies {
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 	implementation("org.mariadb.jdbc:mariadb-java-client")
 	testImplementation("org.springframework.kafka:spring-kafka-test")
+
+	implementation("org.mariadb.jdbc:mariadb-java-client:3.1.4")
 }
 
 tasks.withType<Test> {

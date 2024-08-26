@@ -30,7 +30,7 @@ public class UserService {
     }
 
     public User login(UserLoginRequest loginRequest) {
-        User user = userRepository.findByUserId(loginRequest.getUserId())
+        User user = userRepository.findByLoginId(loginRequest.getLoginId())
                 .orElseThrow(() -> new ApiException(ErrorCode.BAD_REQUEST));
 
         boolean passwordMatch = passwordEncoder.matches(loginRequest.getPasswordHash(), user.getPasswordHash());
@@ -41,8 +41,8 @@ public class UserService {
         return user;
     }
 
-    public User getUserWithThrow(String userId) {
-        return userRepository.findByUserId(userId)
+    public User getUserWithThrow(String loginId) {
+        return userRepository.findByLoginId(loginId)
                 .orElseThrow(() -> new ApiException(ErrorCode.BAD_REQUEST));
     }
 }

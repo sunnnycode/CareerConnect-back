@@ -50,7 +50,7 @@ public class UserBusiness {
     public UserResponse info(
             User user
     ) {
-        var userEntity = userService.getUserWithThrow(user.getUserId());
+        var userEntity = userService.getUserWithThrow(user.getLoginId());
         var response = userMapper.toResponse(userEntity);
         return response;
 

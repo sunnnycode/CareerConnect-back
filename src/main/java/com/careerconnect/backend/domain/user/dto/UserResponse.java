@@ -17,7 +17,7 @@ public class UserResponse {
 
     private int id;
 
-    private String userId;
+    private String loginId;
 
     private String username;
 

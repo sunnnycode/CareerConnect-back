@@ -41,15 +41,15 @@ public class UserSessionResolver implements HandlerMethodArgumentResolver {
 
         // request context holder에서 찾아오기
         var requestContext = RequestContextHolder.getRequestAttributes();
-        var userId = requestContext.getAttribute("userId", RequestAttributes.SCOPE_REQUEST);
+        var loginId = requestContext.getAttribute("loginId", RequestAttributes.SCOPE_REQUEST);
 
-        var userEntity = userService.getUserWithThrow(userId.toString());
+        var userEntity = userService.getUserWithThrow(loginId.toString());
 
 
         // 사용자 정보 셋팅
         return User.builder()
                 .id(userEntity.getId())
-                .userId(userEntity.getUserId())
+                .loginId(userEntity.getLoginId())
                 .username(userEntity.getUsername())
                 .passwordHash(userEntity.getPasswordHash())
                 .createdAt(userEntity.getCreatedAt())
