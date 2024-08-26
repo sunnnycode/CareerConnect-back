@@ -66,6 +66,13 @@ dependencies {
 	testImplementation("org.springframework.kafka:spring-kafka-test")
 
 	implementation("org.mariadb.jdbc:mariadb-java-client:3.1.4")
+
+	implementation("org.hibernate:hibernate-entitymanager:6.0.0.Alpha7")
+
+	//implementation("org.flywaydb:flyway-core:10.17.2")
+	//implementation ("org.flywaydb:flyway-mysql")
+
+
 }
 
 tasks.withType<Test> {
