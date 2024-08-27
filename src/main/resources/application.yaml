@@ -4,27 +4,28 @@ spring:
   application:
     name: careerconnect
 
-  #database 설정
+  # Database 설정
   datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: ${DATABASE_URL}
-    username: ${DATABASE_USERNAME}
-    password: ${DATABASE_PASSWORD}
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://${DB_HOST:127.0.0.1}:${DB_PORT:3307}/${DB_DATABASE:boot_db}
+    username: ${DB_USERNAME:boot}
+    password: ${DB_PASSWORD:boot}
 
   jpa:
     show-sql: true
     open-in-view: false
     properties:
       format_sql: true
-      dialect: org.hibernate.dialect.MySQL8Dialect
+      hibernate:
+        dialect: org.hibernate.dialect.MariaDBDialect
     hibernate:
-      ddl-auto: update
+      ddl-auto: validate
 
   flyway:
-    url: ${DATABASE_URL}
-    user: ${DATABASE_USERNAME}
-    password: ${DATABASE_PASSWORD}
-    location: classpath:/db/migration
+    url: jdbc:mariadb://${DB_HOST:127.0.0.1}:${DB_PORT:3307}/${DB_DATABASE:boot_db}
+    user: ${DB_USERNAME:boot}
+    password: ${DB_PASSWORD:boot}
+    locations: classpath:/db/migration/{vendor}
     baselineOnMigrate: true
     enabled: true
 
@@ -39,16 +40,13 @@ spring:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.apache.kafka.common.serialization.StringSerializer
 
-
-
-
-#log 설정
+# Log 설정
 logging:
   config: classpath:logback-spring.xml
-#  level:
-#    root: DEBUG
+  level:
+    root: DEBUG
 #  pattern:
-#     console: "%d %5p {%c} %m%n"
+#    console: "%d %5p {%c} %m%n"
 
 token:
   secret:
@@ -57,4 +55,3 @@ token:
     plus-hour: 1
   refresh-token:
     plus-hour: 12
-
