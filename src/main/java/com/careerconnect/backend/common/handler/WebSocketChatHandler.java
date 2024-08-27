@@ -1,7 +1,6 @@
-// WebSocketChatHandler.java
 package com.careerconnect.backend.common.handler;
 
-import org.springframework.kafka.core.KafkaTemplate;
+import com.careerconnect.backend.common.producer.KafkaProducer;
 import org.springframework.stereotype.Component;
 import org.springframework.web.socket.TextMessage;
 import org.springframework.web.socket.WebSocketSession;
@@ -9,16 +8,16 @@ import org.springframework.web.socket.handler.TextWebSocketHandler;
 
 @Component
 public class WebSocketChatHandler extends TextWebSocketHandler {
-    private final KafkaTemplate<String, String> kafkaTemplate;
+    private final KafkaProducer kafkaProducer;
 
-    public WebSocketChatHandler(KafkaTemplate<String, String> kafkaTemplate) {
-        this.kafkaTemplate = kafkaTemplate;
+    public WebSocketChatHandler(KafkaProducer kafkaProducer) {
+        this.kafkaProducer = kafkaProducer;
     }
 
     @Override
     protected void handleTextMessage(WebSocketSession session, TextMessage message) throws Exception {
         String payload = message.getPayload();
-        kafkaTemplate.send("chat_topic", payload);
+        kafkaProducer.sendMessage("chat_topic", payload);
         session.sendMessage(new TextMessage("Message sent to Kafka: " + payload));
     }
 }

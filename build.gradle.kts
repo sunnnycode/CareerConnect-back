@@ -67,7 +67,6 @@ dependencies {
 
 	// Kafka
 	implementation("org.springframework.kafka:spring-kafka")
-	implementation("org.springframework.kafka:spring-kafka-streams")
 	testImplementation("org.springframework.kafka:spring-kafka-test")
 
 	// JSON serialization/deserialization
