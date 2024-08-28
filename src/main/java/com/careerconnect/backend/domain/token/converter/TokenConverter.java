@@ -1,11 +1,11 @@
-package com.careerconnect.backend.domain.user.token.converter;
+package com.careerconnect.backend.domain.token.converter;
 
 
 import com.careerconnect.backend.common.annotation.Converter;
 import com.careerconnect.backend.common.error.ErrorCode;
 import com.careerconnect.backend.common.exception.ApiException;
-import com.careerconnect.backend.domain.user.token.controller.model.TokenResponse;
-import com.careerconnect.backend.domain.user.token.dto.TokenDto;
+import com.careerconnect.backend.domain.token.controller.model.TokenResponse;
+import com.careerconnect.backend.domain.token.dto.TokenDto;
 import lombok.RequiredArgsConstructor;
 
 import java.util.Objects;

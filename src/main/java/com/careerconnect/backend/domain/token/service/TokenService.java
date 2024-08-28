@@ -1,9 +1,9 @@
-package com.careerconnect.backend.domain.user.token.service;
+package com.careerconnect.backend.domain.token.service;
 
 import com.careerconnect.backend.common.error.ErrorCode;
 import com.careerconnect.backend.common.exception.ApiException;
-import com.careerconnect.backend.domain.user.token.Ifs.TokenHelperIfs;
-import com.careerconnect.backend.domain.user.token.dto.TokenDto;
+import com.careerconnect.backend.domain.token.Ifs.TokenHelperIfs;
+import com.careerconnect.backend.domain.token.dto.TokenDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

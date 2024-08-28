@@ -3,10 +3,10 @@ package com.careerconnect.backend.domain.user.business;
 
 import com.careerconnect.backend.common.annotation.Business;
 import com.careerconnect.backend.db.user.User;
+import com.careerconnect.backend.domain.token.business.TokenBusiness;
+import com.careerconnect.backend.domain.token.controller.model.TokenResponse;
 import com.careerconnect.backend.domain.user.dto.*;
 import com.careerconnect.backend.domain.user.service.UserService;
-import com.careerconnect.backend.domain.user.token.business.TokenBusiness;
-import com.careerconnect.backend.domain.user.token.controller.model.TokenResponse;
 import lombok.RequiredArgsConstructor;
 
 
@@ -18,6 +18,18 @@ public class UserBusiness {
     private final UserService userService;
     private final UserMapper userMapper;
     private final TokenBusiness tokenBusiness;
+
+    // 로그인 ID를 사용하여 사용자 정보를 조회하고, DTO로 변환합니다.
+    public UserResponse info(String loginId) {
+        var userEntity = userService.getUserWithThrow(loginId);
+        return userMapper.toResponse(userEntity);
+    }
+
+    // 로그인 ID를 사용하여 username을 반환합니다.
+    public String getUsernameByLoginId(String loginId) {
+        return userService.findUsernameByLoginId(loginId);
+    }
+
 
     /**
      * 1. 회원가입(request) -> entity
@@ -56,4 +68,3 @@ public class UserBusiness {
 
     }
 }
-

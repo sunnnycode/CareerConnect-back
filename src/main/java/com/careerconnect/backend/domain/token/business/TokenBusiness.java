@@ -1,13 +1,13 @@
-package com.careerconnect.backend.domain.user.token.business;
+package com.careerconnect.backend.domain.token.business;
 
 
 import com.careerconnect.backend.common.annotation.Business;
 import com.careerconnect.backend.common.error.ErrorCode;
 import com.careerconnect.backend.common.exception.ApiException;
 import com.careerconnect.backend.db.user.User;
-import com.careerconnect.backend.domain.user.token.controller.model.TokenResponse;
-import com.careerconnect.backend.domain.user.token.converter.TokenConverter;
-import com.careerconnect.backend.domain.user.token.service.TokenService;
+import com.careerconnect.backend.domain.token.controller.model.TokenResponse;
+import com.careerconnect.backend.domain.token.converter.TokenConverter;
+import com.careerconnect.backend.domain.token.service.TokenService;
 import lombok.RequiredArgsConstructor;
 
 import java.util.Optional;
@@ -44,6 +44,11 @@ public class TokenBusiness {
                 );
 
 
+    }
+
+    public String  validationAccessToken(String accessToken){
+        var loginId = tokenService.validationToken(accessToken);
+        return loginId;
     }
 
 }

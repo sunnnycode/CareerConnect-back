@@ -1,15 +1,15 @@
 spring:
   profiles:
-    active: dev
+    active: prod
   application:
     name: careerconnect
 
   # Database 설정
   datasource:
-    driver-class-name: org.mariadb.jdbc.Driver
-    url: jdbc:mariadb://${DB_HOST:127.0.0.1}:${DB_PORT:3307}/${DB_DATABASE:boot_db}
-    username: ${DB_USERNAME:boot}
-    password: ${DB_PASSWORD:boot}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: ${DATABASE_URL}
+    username: ${DATABASE_USERNAME}
+    password: ${DATABASE_PASSWORD}
 
   jpa:
     show-sql: true
@@ -17,22 +17,22 @@ spring:
     properties:
       format_sql: true
       hibernate:
-        dialect: org.hibernate.dialect.MariaDBDialect
+        dialect:
     hibernate:
-      ddl-auto: validate
+      ddl-auto: update
 
   flyway:
-    url: jdbc:mariadb://${DB_HOST:127.0.0.1}:${DB_PORT:3307}/${DB_DATABASE:boot_db}
-    user: ${DB_USERNAME:boot}
-    password: ${DB_PASSWORD:boot}
-    locations: classpath:/db/migration/{vendor}
+    url: ${DATABASE_URL}
+    user: ${DATABASE_USERNAME}
+    password: ${DATABASE_PASSWORD}
+    locations: classpath:/db/migration/mariadb
     baselineOnMigrate: true
     enabled: true
 
   kafka:
     bootstrap-servers: localhost:9092
     consumer:
-      group-id: chat_group
+      group-id: kafka-sandbox
       auto-offset-reset: earliest
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
@@ -40,18 +40,20 @@ spring:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.apache.kafka.common.serialization.StringSerializer
 
-# Log 설정
+
+#log 설정
 logging:
   config: classpath:logback-spring.xml
-  level:
-    root: DEBUG
+#  level:
+#    root: DEBUG
 #  pattern:
-#    console: "%d %5p {%c} %m%n"
+#     console: "%d %5p {%c} %m%n"
 
 token:
   secret:
-    key: SpringBootJWTHelperTokenSecretKeyValue123!@#
+    key: ${JWT_SECRET_KEY}
   access-token:
     plus-hour: 1
   refresh-token:
     plus-hour: 12
+

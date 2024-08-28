@@ -1,4 +1,4 @@
-package com.careerconnect.backend.resolver;
+package com.careerconnect.backend.common.resolver;
 
 import com.careerconnect.backend.common.annotation.UserSession;
 import com.careerconnect.backend.db.user.User;

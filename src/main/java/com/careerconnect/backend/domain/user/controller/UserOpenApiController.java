@@ -6,10 +6,9 @@ import com.careerconnect.backend.domain.user.dto.UserLoginRequest;
 import com.careerconnect.backend.domain.user.dto.UserRegisterRequest;
 import com.careerconnect.backend.domain.user.dto.UserResponse;
 import com.careerconnect.backend.domain.user.service.UserService;
-import com.careerconnect.backend.domain.user.token.controller.model.TokenResponse;
+import com.careerconnect.backend.domain.token.controller.model.TokenResponse;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
 

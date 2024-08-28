@@ -1,4 +1,4 @@
-package com.careerconnect.backend.domain.user.token.dto;
+package com.careerconnect.backend.domain.token.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

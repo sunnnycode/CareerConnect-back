@@ -1,4 +1,4 @@
-package com.careerconnect.backend.domain.user.token.controller.model;
+package com.careerconnect.backend.domain.token.controller.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

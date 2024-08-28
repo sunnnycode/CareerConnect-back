@@ -1,9 +1,9 @@
-package com.careerconnect.backend.domain.user.token.helper;
+package com.careerconnect.backend.domain.token.helper;
 
 import com.careerconnect.backend.common.error.TokenErrorCode;
 import com.careerconnect.backend.common.exception.ApiException;
-import com.careerconnect.backend.domain.user.token.Ifs.TokenHelperIfs;
-import com.careerconnect.backend.domain.user.token.dto.TokenDto;
+import com.careerconnect.backend.domain.token.dto.TokenDto;
+import com.careerconnect.backend.domain.token.Ifs.TokenHelperIfs;
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;

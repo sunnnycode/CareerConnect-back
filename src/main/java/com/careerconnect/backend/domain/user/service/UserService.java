@@ -1,10 +1,12 @@
 package com.careerconnect.backend.domain.user.service;
 
 import com.careerconnect.backend.common.error.ErrorCode;
+import com.careerconnect.backend.common.error.UserErrorCode;
 import com.careerconnect.backend.common.exception.ApiException;
 import com.careerconnect.backend.db.user.User;
 import com.careerconnect.backend.db.user.UserRepository;
 import com.careerconnect.backend.domain.user.dto.UserLoginRequest;
+import com.careerconnect.backend.domain.user.dto.UserResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -41,8 +43,15 @@ public class UserService {
         return user;
     }
 
+
     public User getUserWithThrow(String loginId) {
         return userRepository.findByLoginId(loginId)
                 .orElseThrow(() -> new ApiException(ErrorCode.BAD_REQUEST));
+    }
+
+    public String findUsernameByLoginId(String loginId) {
+        User user = userRepository.findByLoginId(loginId)
+                .orElseThrow(() -> new RuntimeException("User not found")); // 예외 처리
+        return user.getUsername();
     }
 }

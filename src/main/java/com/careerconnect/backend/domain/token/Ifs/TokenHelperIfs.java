@@ -1,7 +1,7 @@
-package com.careerconnect.backend.domain.user.token.Ifs;
+package com.careerconnect.backend.domain.token.Ifs;
 
 
-import com.careerconnect.backend.domain.user.token.dto.TokenDto;
+import com.careerconnect.backend.domain.token.dto.TokenDto;
 
 import java.util.Map;
 
