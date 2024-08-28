@@ -26,10 +26,10 @@ public class UserOpenApiController {
     @PostMapping("/register")
     public Api<UserResponse> register(
             @Valid
-            @RequestBody Api<UserRegisterRequest> request
+            @RequestBody UserRegisterRequest request
     ) {
 
-        var response = userBusiness.register(request.getBody());
+        var response = userBusiness.register(request);
         return Api.OK(response);
     }
 
@@ -37,9 +37,9 @@ public class UserOpenApiController {
     @PostMapping("/login")
     public Api<TokenResponse> login(
             @Valid
-            @RequestBody Api<UserLoginRequest> request
+            @RequestBody UserLoginRequest request
     ){
-        var response = userBusiness.login(request.getBody());
+        var response = userBusiness.login(request);
         return Api.OK(response);
     }
 }
