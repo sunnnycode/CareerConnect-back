@@ -17,8 +17,7 @@ spring:
     properties:
       format_sql: true
       hibernate:
-        dialect:
-    hibernate:
+      dialect:
       ddl-auto: update
 
   flyway:
@@ -40,6 +39,9 @@ spring:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.apache.kafka.common.serialization.StringSerializer
 
+openai:
+  api:
+    key: ${OPENAI_API_KEY}
 
 #log 설정
 logging:
@@ -56,4 +58,3 @@ token:
     plus-hour: 1
   refresh-token:
     plus-hour: 12
-

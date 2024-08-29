@@ -75,6 +75,12 @@ dependencies {
 	// Testing
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+
+	// WebFlux for reactive programming and WebClient support
+//	implementation("org.springframework.boot:spring-boot-starter-webflux")
+
+	// chatGPT-API
+//	implementation("io.github.flashvayne:chatgpt-spring-boot-starter:1.0.4")
 }
 
 tasks.withType<Test> {

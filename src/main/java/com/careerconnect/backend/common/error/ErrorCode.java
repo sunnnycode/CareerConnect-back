@@ -14,7 +14,7 @@ public enum ErrorCode implements ErrorCodeIfs {
     NULL_POINT(HttpStatus.INTERNAL_SERVER_ERROR.value(), 512, "Null point"),
 
     // NOT_FOUND 오류 코드 추가
-    NOT_FOUND(HttpStatus.NOT_FOUND.value(), 404, "존재하지 않는 사용자입니다."); // 수정된 부분
+    NOT_FOUND(HttpStatus.NOT_FOUND.value(), 404, "존재하지 않는 사용자입니다.");
 
     private final Integer httpStatusCode;
     private final Integer errorCode;
