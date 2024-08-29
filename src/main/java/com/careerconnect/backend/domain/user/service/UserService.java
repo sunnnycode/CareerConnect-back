@@ -61,6 +61,10 @@ public class UserService {
                 .id(user.getId())
                 .loginId(user.getLoginId())
                 .username(user.getUsername())
+                .passwordHash(user.getPasswordHash())
+                .createdAt(user.getCreatedAt())
+                .lastLogin(user.getLastLogin())
+                .isActive(user.getIsActive())
                 .build();
     }
 }
