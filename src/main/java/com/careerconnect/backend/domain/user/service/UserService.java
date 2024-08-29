@@ -4,8 +4,8 @@ import com.careerconnect.backend.common.error.ErrorCode;
 import com.careerconnect.backend.common.exception.ApiException;
 import com.careerconnect.backend.db.user.User;
 import com.careerconnect.backend.db.user.UserRepository;
+import com.careerconnect.backend.domain.user.dto.UserDto; // 기존 UserDto 사용
 import com.careerconnect.backend.domain.user.dto.UserLoginRequest;
-import com.careerconnect.backend.domain.user.dto.UserResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -53,17 +53,14 @@ public class UserService {
         return user.getUsername();
     }
 
-    public UserResponse findByUsername(String username) {
+    public UserDto searchByUsername(String username) {
         User user = userRepository.findByUsername(username)
                 .orElseThrow(() -> new ApiException(ErrorCode.NOT_FOUND, "존재하지 않는 사용자입니다."));
-        return UserResponse.builder()
+
+        return UserDto.builder()
                 .id(user.getId())
                 .loginId(user.getLoginId())
                 .username(user.getUsername())
-                .passwordHash(user.getPasswordHash())
-                .createdAt(user.getCreatedAt())
-                .lastLogin(user.getLastLogin())
-                .isActive(user.getIsActive())
                 .build();
     }
 }
