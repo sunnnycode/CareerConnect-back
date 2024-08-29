@@ -16,7 +16,6 @@ public class WebMvcConfig implements WebMvcConfigurer {
     @Autowired
     private AuthorizationInterceptor authorizationInterceptor;
 
-
     private List<String> OPEN_API = List.of(
             "/open-api/**"
     );
@@ -32,7 +31,6 @@ public class WebMvcConfig implements WebMvcConfigurer {
             "/swagger-ui/**",
             "/v3/api-docs/**"
     );
-
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {

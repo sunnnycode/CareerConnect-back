@@ -10,9 +10,6 @@ import org.springframework.stereotype.Service;
 import java.util.HashMap;
 import java.util.Objects;
 
-/**
- * token 에 대한 도메인로직
- */
 @RequiredArgsConstructor
 @Service
 public class TokenService {

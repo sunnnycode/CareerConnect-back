@@ -29,8 +29,4 @@ public class UserDto {
     private LocalDateTime lastLogin;
 
     private Boolean isActive;
-
-
-
-
 }

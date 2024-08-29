@@ -20,7 +20,6 @@ public class UserApiController {
     private final UserBusiness userBusiness;
     private final TokenBusiness tokenBusiness;
 
-
     @GetMapping("/info")
     public Api<UserResponse> info(@RequestHeader("Authorization") String accessToken) {
         String loginId = tokenBusiness.validationAccessToken(accessToken);
@@ -45,5 +44,4 @@ public class UserApiController {
         String username = userBusiness.getUsernameByLoginId(loginId);
         return Api.OK(username);
     }
-
 }

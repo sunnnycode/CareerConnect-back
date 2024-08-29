@@ -11,7 +11,6 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
-
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/open-api/user")
@@ -21,15 +20,13 @@ public class UserOpenApiController {
     private final UserService userService;
     private final UserBusiness userBusiness;
 
-
     // 회원가입
     @PostMapping("/register")
     public Api<UserResponse> register(
             @Valid
-            @RequestBody Api<UserRegisterRequest> request
+            @RequestBody UserRegisterRequest request
     ) {
-
-        var response = userBusiness.register(request.getBody());
+        var response = userBusiness.register(request);
         return Api.OK(response);
     }
 
@@ -37,9 +34,9 @@ public class UserOpenApiController {
     @PostMapping("/login")
     public Api<TokenResponse> login(
             @Valid
-            @RequestBody Api<UserLoginRequest> request
+            @RequestBody UserLoginRequest request
     ){
-        var response = userBusiness.login(request.getBody());
+        var response = userBusiness.login(request);
         return Api.OK(response);
     }
 }

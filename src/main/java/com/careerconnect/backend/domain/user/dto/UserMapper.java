@@ -5,6 +5,7 @@ import com.careerconnect.backend.common.error.ErrorCode;
 import com.careerconnect.backend.common.exception.ApiException;
 import com.careerconnect.backend.db.user.User;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.util.Optional;
 
@@ -14,32 +15,31 @@ public class UserMapper {
 
     public User toEntity(UserRegisterRequest request){
 
-        // to entity
-        return Optional.ofNullable(request)
-                .map(it -> {
+        // Request 데이터 유효성 검사 추가
+        if(request == null) {
+            throw new ApiException(ErrorCode.NULL_POINT, "UserRegisterRequest Null");
+        }
 
-                    return User.builder()
-                            .loginId(request.getLoginId())
-                            .username(request.getUsername())
-                            .passwordHash(request.getPasswordHash())
-                            .build();
-
-                })
-                .orElseThrow(()-> new ApiException(ErrorCode.NULL_POINT, "UserRegisterRequest Null"));
+        // 엔티티로 변환
+        return User.builder()
+                .loginId(request.getLoginId())
+                .username(request.getUsername())
+                .passwordHash(request.getPasswordHash())
+                .build();
     }
 
-    // to response
     public UserResponse toResponse(User user) {
 
         return Optional.ofNullable(user)
-                .map(it ->{
-
-                    return UserResponse.builder()
-                            .loginId(user.getLoginId())
-                            .username(user.getUsername())
-                            .passwordHash(user.getPasswordHash())
-                            .build();
-                })
-                .orElseThrow(()-> new ApiException(ErrorCode.NULL_POINT, "UserEntity Null"));
+                .map(it -> UserResponse.builder()
+                        .id(user.getId())
+                        .loginId(user.getLoginId())
+                        .username(user.getUsername())
+                        .passwordHash(user.getPasswordHash())
+                        .createdAt(user.getCreatedAt())
+                        .lastLogin(user.getLastLogin())
+                        .isActive(user.getIsActive())
+                        .build())
+                .orElseThrow(() -> new ApiException(ErrorCode.NULL_POINT, "UserEntity Null"));
     }
 }

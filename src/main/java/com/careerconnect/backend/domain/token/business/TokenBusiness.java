@@ -1,6 +1,5 @@
 package com.careerconnect.backend.domain.token.business;
 
-
 import com.careerconnect.backend.common.annotation.Business;
 import com.careerconnect.backend.common.error.ErrorCode;
 import com.careerconnect.backend.common.exception.ApiException;
@@ -46,7 +45,7 @@ public class TokenBusiness {
 
     }
 
-    public String  validationAccessToken(String accessToken){
+    public String validationAccessToken(String accessToken){
         var loginId = tokenService.validationToken(accessToken);
         return loginId;
     }

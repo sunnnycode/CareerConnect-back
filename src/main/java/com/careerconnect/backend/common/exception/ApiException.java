@@ -1,9 +1,7 @@
 package com.careerconnect.backend.common.exception;
 
-
 import com.careerconnect.backend.common.error.ErrorCodeIfs;
 import lombok.Getter;
-
 
 @Getter
 public class ApiException extends RuntimeException implements ApiExceptionIfs {

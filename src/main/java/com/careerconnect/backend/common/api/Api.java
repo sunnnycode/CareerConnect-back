@@ -1,6 +1,5 @@
 package com.careerconnect.backend.common.api;
 
-
 import com.careerconnect.backend.common.error.ErrorCodeIfs;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;

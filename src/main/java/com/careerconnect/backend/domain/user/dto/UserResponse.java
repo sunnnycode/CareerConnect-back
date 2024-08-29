@@ -1,7 +1,5 @@
 package com.careerconnect.backend.domain.user.dto;
 
-
-import com.careerconnect.backend.db.user.User;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -28,7 +26,4 @@ public class UserResponse {
     private LocalDateTime lastLogin;
 
     private Boolean isActive;
-
-
-
 }

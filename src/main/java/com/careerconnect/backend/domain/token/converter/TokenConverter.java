@@ -1,6 +1,5 @@
 package com.careerconnect.backend.domain.token.converter;
 
-
 import com.careerconnect.backend.common.annotation.Converter;
 import com.careerconnect.backend.common.error.ErrorCode;
 import com.careerconnect.backend.common.exception.ApiException;
