@@ -26,6 +26,7 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable()) // CSRF 비활성화
                 .authorizeHttpRequests(authz -> authz
                         .requestMatchers("/open-api/gpt/**").permitAll()  // GPT API에 대한 접근을 허용
+                        .requestMatchers("/ws-chat/**").permitAll()
                         .anyRequest().permitAll()
                 );
 
